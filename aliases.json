@@ -1,0 +1,17 @@
+[
+  {
+    "node_id": "gw01",
+    "hostname": "gw01.tecff.de",
+    "network": {
+      "mesh": {
+        "bat0": {
+          "interfaces": {
+            "tunnel": [
+              "ea:8d:05:da:0e:ff"
+            ]
+          }
+        }
+      }
+    }
+  }
+]
