@@ -111,6 +111,10 @@ def main(params):
     if params['prune']:
         nodes.prune_nodes(nodedb['nodes'], now, params['prune'])
 
+    # clear the nodedb from a specific node by MAC address
+    if params['prunemac']:
+        nodes.prune_mac_node(nodedb['nodes'], params['prunemac'])
+
     # build nxnetworks graph from nodedb and visdata
     batadv_graph = nx.DiGraph()
     for vd, gwl in mesh_info:
@@ -176,6 +180,8 @@ if __name__ == '__main__':
                         help='Assume MAC addresses are part of vpn')
     parser.add_argument('-p', '--prune', metavar='DAYS', type=int,
                         help='forget nodes offline for at least DAYS')
+    parser.add_argument('--prunemac', metavar='MAC',
+                        help='forget node with specific MAC address')
     parser.add_argument('--with-rrd', dest='rrd', action='store_true',
                         default=False,
                         help='enable the rendering of RRD graphs (cpu '

@@ -50,6 +50,18 @@ def prune_nodes(nodes, now, days):
         del nodes[node_id]
 
 
+def prune_mac_node(nodes, mac):
+    prune = []
+    for node_id, node in nodes.items():
+        if 'mac' in node['nodeinfo']['network']:
+            if node['nodeinfo']['network']['mac'] == mac:
+                prune.append(node_id)
+                break
+
+    for node_id in prune:
+        del nodes[node_id]
+
+
 def mark_online(node, now):
     node['lastseen'] = now.isoformat()
     node.setdefault('firstseen', now.isoformat())
