@@ -1,13 +1,16 @@
 [
   {
-    "node_id": "gw01",
-    "hostname": "gw01.tecff.de",
+    "node_id": "gw02",
+    "hostname": "gw02.tecff.de",
     "network": {
       "mesh": {
         "bat0": {
           "interfaces": {
             "tunnel": [
-              "0a:c2:52:9c:a3:6f"
+              "56:d2:03:f5:a2:ab",
+              "8e:d5:d1:f0:15:ee",
+              "86:49:fa:78:a3:09",
+              "6e:c1:18:76:6c:9b"
             ]
           }
         }
