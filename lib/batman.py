@@ -13,7 +13,12 @@ class Batman(object):
         self.mesh_interface = mesh_interface
         self.alfred_sock = alfred_sockpath
 
-        env = os.environ.copy()
+        # ensure /usr/sbin and /usr/local/sbin are in PATH
+        env = os.environ
+        path = set(env['PATH'].split(':'))
+        path.add('/usr/sbin/')
+        path.add('/usr/local/sbin')
+        env['PATH'] = ':'.join(path)
         self.environ = env
 
         # compile regular expressions only once on startup
