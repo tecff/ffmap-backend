@@ -20,8 +20,7 @@ class Alfred(object):
         if self.unix_sock:
             cmd.extend(['-s', self.unix_sock])
 
-        env = os.environ.copy()
-        output = subprocess.check_output(cmd, env=env)
+        output = subprocess.check_output(cmd)
         return json.loads(output.decode("utf-8")).values()
 
     def nodeinfo(self):
